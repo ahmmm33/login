@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8" />
+<title>تسجيل دخول بدون باك إند</title>
+<style>
+  body { font-family: Arial; padding: 20px; background: #f9f9f9; }
+  .container { max-width: 300px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+  input, button { width: 100%; padding: 10px; margin-top: 10px; }
+  button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+  button:hover { background-color: #45a049; }
+  .message { color: green; margin-top: 15px; }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>تسجيل الدخول</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="اسم المستخدم" required />
+      <input type="password" id="password" placeholder="كلمة المرور" required />
+      <button type="submit">تسجيل</button>
+    </form>
+    <p class="message" id="message"></p>
+  </div>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // تخزين البيانات مؤقتًا في المتصفح (localStorage)
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
+
+    document.getElementById('message').textContent = 'تم تسجيل الدخول وتخزين البيانات مؤقتًا على جهازك.';
+  });
+</script>
+</body>
+</html>
